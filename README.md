@@ -1,6 +1,17 @@
 # 🏠 California House Price Prediction Using Machine Learning
 
-## 📌 Project Overview
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-Machine%20Learning-orange?logo=scikitlearn)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?logo=numpy)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-blue)
+![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Visualization-4C72B0)
+![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+---
+
+# 📌 Project Overview
 
 This project develops and evaluates multiple machine learning regression models to predict California housing prices using the California Housing Dataset provided by Scikit-learn.
 
@@ -21,6 +32,17 @@ The objective is to compare multiple regression algorithms and identify the best
 
 ---
 
+# 🎯 Key Results
+
+- 📊 Dataset: **20,640** California housing records
+- 🤖 Models Compared: **3**
+- 🏆 Best Model: **Random Forest Regressor**
+- 📈 Best R² Score: **0.8062**
+- 📉 Lowest RMSE: **0.5040**
+- 💰 Lowest MAE: **0.3268**
+
+---
+
 # 📂 Dataset
 
 **Dataset:** California Housing Dataset
@@ -33,9 +55,9 @@ from sklearn.datasets import fetch_california_housing
 
 ### Dataset Information
 
-- **Rows:** 20,640
-- **Features:** 8
-- **Target Variable:** Median House Value
+- Rows: **20,640**
+- Features: **8**
+- Target Variable: **Median House Value**
 
 ---
 
@@ -52,7 +74,7 @@ from sklearn.datasets import fetch_california_housing
 | Latitude | Geographic latitude |
 | Longitude | Geographic longitude |
 
-Target Variable:
+### Target Variable
 
 **Price (Median House Value)**
 
@@ -60,17 +82,17 @@ Target Variable:
 
 # 🔍 Exploratory Data Analysis
 
-Several visualizations were created to better understand the data before building the models.
+Several visualizations were created to better understand the dataset before training the machine learning models.
 
-## Price Distribution
+## 📈 Price Distribution
 
-This histogram illustrates how house prices are distributed across California.
+The histogram below illustrates how house prices are distributed across California.
 
 ![Price Distribution](images/price_distribution.png)
 
 ---
 
-## Correlation Matrix
+## 🔥 Correlation Matrix
 
 The heatmap shows the correlation between all numerical variables.
 
@@ -80,7 +102,7 @@ It helps identify relationships between features and the target variable.
 
 ---
 
-## Geographic Distribution of House Prices
+## 🗺 Geographic Distribution of House Prices
 
 This visualization displays California districts geographically.
 
@@ -95,14 +117,15 @@ This visualization displays California districts geographically.
 
 The following preprocessing steps were performed:
 
+- Loaded the California Housing Dataset
 - Converted the dataset into a Pandas DataFrame
 - Checked for missing values
-- Exploratory Data Analysis
-- Feature and target separation
-- Train/Test Split (80/20)
-- Feature Scaling (Linear Regression only)
+- Performed Exploratory Data Analysis
+- Separated features and target variable
+- Split the dataset into training and testing sets (80/20)
+- Applied feature scaling for Linear Regression
 
-Tree-based models (Random Forest and Gradient Boosting) were trained using the original feature values because they are not affected by feature scaling.
+Random Forest and Gradient Boosting were trained using the original feature values because tree-based algorithms are not affected by feature scaling.
 
 ---
 
@@ -110,21 +133,21 @@ Tree-based models (Random Forest and Gradient Boosting) were trained using the o
 
 Three regression algorithms were implemented and compared.
 
-## 1. Linear Regression
+## 1️⃣ Linear Regression
 
-Used as the baseline regression model.
-
----
-
-## 2. Random Forest Regressor
-
-An ensemble learning algorithm that combines multiple decision trees to improve prediction accuracy.
+A simple baseline regression model used for comparison.
 
 ---
 
-## 3. Gradient Boosting Regressor
+## 2️⃣ Random Forest Regressor
 
-A boosting algorithm that sequentially improves previous prediction errors.
+An ensemble learning algorithm that combines multiple decision trees to improve prediction accuracy and reduce overfitting.
+
+---
+
+## 3️⃣ Gradient Boosting Regressor
+
+A boosting algorithm that builds trees sequentially by correcting the errors made by previous trees.
 
 ---
 
@@ -133,10 +156,10 @@ A boosting algorithm that sequentially improves previous prediction errors.
 | Model | MAE | RMSE | R² Score |
 |------|------:|------:|------:|
 | Linear Regression | 0.5332 | 0.7456 | 0.5758 |
-| Random Forest Regressor | **0.3268** | **0.5040** | **0.8062** |
+| **Random Forest Regressor** | **0.3268** | **0.5040** | **0.8062** |
 | Gradient Boosting Regressor | 0.3483 | 0.5114 | 0.8004 |
 
-## Model Comparison
+## 📊 Model Comparison
 
 ![Model Comparison](images/model_comparison.png)
 
@@ -144,13 +167,13 @@ A boosting algorithm that sequentially improves previous prediction errors.
 
 # 🌳 Feature Importance
 
-Random Forest Feature Importance was used to identify the variables that contributed most to house price prediction.
+Feature importance was calculated using the Random Forest model.
 
-Main observations:
+The analysis shows that:
 
-- Median Income is the strongest predictor.
-- Latitude and Longitude also have significant predictive power.
-- Geographic location plays a major role in determining house prices.
+- **Median Income** is the most influential feature.
+- **Latitude** and **Longitude** also contribute significantly.
+- Geographic location plays a major role in predicting house prices.
 
 ![Feature Importance](images/feature_importance.png)
 
@@ -160,7 +183,7 @@ Main observations:
 
 ## Actual vs Predicted Values
 
-This visualization compares predicted house prices with the actual values.
+This visualization compares the predicted house prices with the actual values.
 
 The red diagonal line represents perfect predictions.
 
@@ -176,7 +199,7 @@ Residual analysis evaluates the prediction errors made by the model.
 
 Most residuals are randomly distributed around zero, indicating that the Random Forest model generalizes well.
 
-The diagonal boundary visible in the residual plot is caused by the capped target values in the California Housing Dataset rather than by poor model performance.
+The diagonal boundary visible in the residual plot is caused by the capped target values in the California Housing Dataset rather than poor model performance.
 
 ![Residual Plot](images/residual_plot.png)
 
@@ -186,7 +209,7 @@ The diagonal boundary visible in the residual plot is caused by the capped targe
 
 Among the three regression models, the **Random Forest Regressor** achieved the best overall performance.
 
-### Performance
+### Performance Summary
 
 - **MAE:** 0.3268
 - **RMSE:** 0.5040
@@ -211,7 +234,7 @@ The Random Forest model significantly outperformed Linear Regression by capturin
 # 📁 Project Structure
 
 ```
-california-house-price-prediction
+california-house-price-prediction/
 │
 ├── images/
 │   ├── price_distribution.png
@@ -234,14 +257,48 @@ california-house-price-prediction
 
 # 🚀 Future Improvements
 
-Possible future improvements include:
+Potential enhancements include:
 
 - Hyperparameter tuning using GridSearchCV
 - Cross-validation
 - XGBoost Regressor
 - LightGBM Regressor
-- SHAP feature importance analysis
+- SHAP values for model interpretability
 - Model deployment using Flask or Streamlit
+
+---
+
+# 📚 How to Run the Project
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/california-house-price-prediction.git
+```
+
+2. Navigate to the project folder
+
+```bash
+cd california-house-price-prediction
+```
+
+3. Install the required libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Open the notebook
+
+```bash
+jupyter notebook
+```
+
+5. Run all cells in:
+
+```
+notebooks/california_house_price_prediction.ipynb
+```
 
 ---
 
